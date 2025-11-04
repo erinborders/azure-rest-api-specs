@@ -1,0 +1,1793 @@
+{
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/commandResults/{commandId}__deleted": {
+      "get": {
+        "operationId": "ManagedClusters_GetCommandResult",
+        "parameters": [
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 63,
+            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
+          },
+          {
+            "name": "commandId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ignore",
+            "schema": {
+              "$ref": "#/definitions/RunCommandResult"
+            }
+          },
+          "202": {
+            "description": "ignore",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "URL to query for status of the operation."
+              }
+            }
+          },
+          "default": {
+            "description": "ignore",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "commandFailedResult": {
+            "$ref": "./examples/RunCommandResultFailed.json"
+          },
+          "commandSucceedResult": {
+            "$ref": "./examples/RunCommandResultSucceed.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/commandResults/{commandId}/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/managedClusters/{resourceName}/{commandId}/getCommandResult__added": {
+      "get": {
+        "operationId": "ManagedClusters_GetCommandResult",
+        "parameters": [
+          {
+            "name": "resourceName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 63,
+            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
+          },
+          {
+            "name": "commandId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ignore",
+            "schema": {
+              "$ref": "#/definitions/RunCommandResult"
+            }
+          },
+          "202": {
+            "description": "ignore",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
+          "default": {
+            "description": "ignore",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "commandFailedResult": {
+            "$ref": "./examples/RunCommandResultFailed.json"
+          },
+          "commandSucceedResult": {
+            "$ref": "./examples/RunCommandResultSucceed.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}": {
+      "put": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            "-",
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedCluster"
+              }
+            }
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-Match",
+                "__new": "if-match"
+              }
+            }
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-None-Match",
+                "__new": "if-none-match"
+              }
+            }
+          ],
+          [
+            "+",
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ManagedCluster"
+              }
+            }
+          ]
+        ],
+        "responses": {
+          "201": {
+            "headers__added": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            "+",
+            {
+              "name": "if-match",
+              "in": "header",
+              "type": "string",
+              "x-ms-client-name": "ifMatch"
+            }
+          ],
+          [
+            " "
+          ],
+          [
+            "-",
+            {
+              "name": "If-Match",
+              "in": "header",
+              "type": "string",
+              "x-ms-client-name": "ifMatch"
+            }
+          ]
+        ],
+        "responses": {
+          "202__added": {
+            "description": "ignore",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-Match",
+                "__new": "if-match"
+              }
+            }
+          ]
+        ],
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/abort": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "location__deleted": {
+                "type": "string",
+                "description": "URL to query for status of the operation."
+              },
+              "Location__added": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Azure-AsyncOperation": {
+                "format__added": "uri",
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "A link to the status monitor"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}": {
+      "put": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            "-",
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/AgentPool"
+              }
+            }
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-Match",
+                "__new": "if-match"
+              }
+            }
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-None-Match",
+                "__new": "if-none-match"
+              }
+            }
+          ],
+          [
+            "+",
+            {
+              "name": "parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/AgentPool"
+              }
+            }
+          ]
+        ],
+        "responses": {
+          "201": {
+            "headers__added": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            "~",
+            {
+              "name": {
+                "__old": "If-Match",
+                "__new": "if-match"
+              }
+            }
+          ]
+        ],
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/abort": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "location__deleted": {
+                "type": "string",
+                "description": "URL to query for status of the operation."
+              },
+              "Location__added": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Azure-AsyncOperation": {
+                "format__added": "uri",
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "A link to the status monitor"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/deleteMachines": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion": {
+      "post": {
+        "x-ms-long-running-operation-options__added": {
+          "final-state-via": "azure-async-operation",
+          "final-state-schema": "#/definitions/TypeSpec.Http.OkResponse"
+        },
+        "responses": {
+          "202": {
+            "schema__deleted": {
+              "$ref": "#/definitions/AgentPool"
+            },
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "A link to the status monitor"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential": {
+      "post": {
+        "parameters": [
+          [
+            " "
+          ],
+          [
+            " "
+          ],
+          [
+            "~",
+            {
+              "enum": [
+                [
+                  "+",
+                  "azure"
+                ],
+                [
+                  " "
+                ],
+                [
+                  "-",
+                  "azure"
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName}": {
+      "put": {
+        "x-ms-long-running-operation-options__added": {
+          "final-state-via": "azure-async-operation",
+          "final-state-schema": "#/definitions/ManagedNamespace"
+        },
+        "responses": {
+          "200": {
+            "headers__deleted": {
+              "Azure-AsyncOperation": {
+                "type": "string"
+              }
+            }
+          },
+          "201": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description__added": "A link to the status monitor"
+              }
+            }
+          },
+          "default": {
+            "headers__deleted": {
+              "Azure-AsyncOperation": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "format__added": "uri",
+                "description__added": "A link to the status monitor"
+              },
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          },
+          "204": {
+            "headers__deleted": {
+              "Azure-AsyncOperation": {
+                "type": "string"
+              }
+            }
+          },
+          "default": {
+            "headers__deleted": {
+              "Azure-AsyncOperation": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}": {
+      "delete": {
+        "responses": {
+          "202__added": {
+            "description": "ignore",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/resetAADProfile": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/resetServicePrincipalProfile": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/rotateClusterCertificates": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/rotateServiceAccountSigningKeys": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description__added": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/runCommand": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/start": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/stop": {
+      "post": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}": {
+      "put": {
+        "responses": {
+          "201": {
+            "headers__added": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "202": {
+            "headers": {
+              "Location": {
+                "description": {
+                  "__old": "URL to query for status of the operation.",
+                  "__new": "The Location header contains the URL where the status of the long running operation can be checked."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CapacityReservationGroupID__deleted": {
+      "type": "string",
+      "format": "arm-id",
+      "x-ms-arm-id-details": {
+        "allowedResources": [
+          {
+            "type": "Microsoft.Compute/CapacityReservationGroups"
+          }
+        ]
+      }
+    },
+    "ContainerServiceOSDisk__deleted": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0,
+      "maximum": 2048
+    },
+    "LocalDNSOverrides__deleted": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/LocalDNSOverride"
+      }
+    },
+    "ManagedClusterSecurityProfileCustomCATrustCertificates__deleted": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "format": "byte"
+      }
+    },
+    "NodePublicIPTags__deleted": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/IPTag"
+      },
+      "x-ms-identifiers": []
+    },
+    "ProximityPlacementGroupID__deleted": {
+      "type": "string",
+      "format": "arm-id",
+      "x-ms-arm-id-details": {
+        "allowedResources": [
+          {
+            "type": "Microsoft.Compute/proximityPlacementGroups"
+          }
+        ]
+      }
+    },
+    "SpotMaxPrice__deleted": {
+      "type": "number",
+      "default": -1
+    },
+    "SubResource__deleted": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "readOnly": true
+        },
+        "name": {
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "VirtualMachineNodesStatus__deleted": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/VirtualMachineNodes"
+      },
+      "x-ms-identifiers": []
+    },
+    "AgentPoolAvailableVersionsPropertiesAgentPoolVersionsItem__added": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "boolean"
+        },
+        "kubernetesVersion": {
+          "type": "string"
+        },
+        "isPreview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AgentPoolUpgradeProfilePropertiesUpgradesItem__added": {
+      "type": "object",
+      "properties": {
+        "kubernetesVersion": {
+          "type": "string"
+        },
+        "isPreview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ManagedClusterAddonProfileIdentity__added": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserAssignedIdentity"
+        }
+      ]
+    },
+    "ManagedClusterLoadBalancerProfileManagedOutboundIPs__added": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "default": 1,
+          "minimum": 1,
+          "maximum": 100
+        },
+        "countIPv6": {
+          "type": "integer",
+          "format": "int32",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "ManagedClusterLoadBalancerProfileOutboundIPPrefixes__added": {
+      "type": "object",
+      "properties": {
+        "publicIPPrefixes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceReference"
+          }
+        }
+      }
+    },
+    "ManagedClusterLoadBalancerProfileOutboundIPs__added": {
+      "type": "object",
+      "properties": {
+        "publicIPs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceReference"
+          }
+        }
+      }
+    },
+    "ManagedClusterPodIdentityProvisioningInfo__added": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ManagedClusterPodIdentityProvisioningError"
+        }
+      }
+    },
+    "ManagedClusterPoolUpgradeProfileUpgradesItem__added": {
+      "type": "object",
+      "properties": {
+        "kubernetesVersion": {
+          "type": "string"
+        },
+        "isPreview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ManagedClusterPropertiesAutoScalerProfile__added": {
+      "type": "object",
+      "properties": {
+        "balance-similar-node-groups": {
+          "type": "string",
+          "x-ms-client-name": "balanceSimilarNodeGroups"
+        },
+        "daemonset-eviction-for-empty-nodes": {
+          "type": "boolean",
+          "x-ms-client-name": "daemonsetEvictionForEmptyNodes"
+        },
+        "daemonset-eviction-for-occupied-nodes": {
+          "type": "boolean",
+          "x-ms-client-name": "daemonsetEvictionForOccupiedNodes"
+        },
+        "ignore-daemonsets-utilization": {
+          "type": "boolean",
+          "x-ms-client-name": "ignoreDaemonsetsUtilization"
+        },
+        "expander": {
+          "type": "string",
+          "enum": [
+            "least-waste",
+            "most-pods",
+            "priority",
+            "random"
+          ],
+          "x-ms-enum": {
+            "name": "Expander",
+            "modelAsString": true
+          }
+        },
+        "max-empty-bulk-delete": {
+          "type": "string",
+          "x-ms-client-name": "maxEmptyBulkDelete"
+        },
+        "max-graceful-termination-sec": {
+          "type": "string",
+          "x-ms-client-name": "maxGracefulTerminationSec"
+        },
+        "max-node-provision-time": {
+          "type": "string",
+          "x-ms-client-name": "maxNodeProvisionTime"
+        },
+        "max-total-unready-percentage": {
+          "type": "string",
+          "x-ms-client-name": "maxTotalUnreadyPercentage"
+        },
+        "new-pod-scale-up-delay": {
+          "type": "string",
+          "x-ms-client-name": "newPodScaleUpDelay"
+        },
+        "ok-total-unready-count": {
+          "type": "string",
+          "x-ms-client-name": "okTotalUnreadyCount"
+        },
+        "scan-interval": {
+          "type": "string",
+          "x-ms-client-name": "scanInterval"
+        },
+        "scale-down-delay-after-add": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownDelayAfterAdd"
+        },
+        "scale-down-delay-after-delete": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownDelayAfterDelete"
+        },
+        "scale-down-delay-after-failure": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownDelayAfterFailure"
+        },
+        "scale-down-unneeded-time": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownUnneededTime"
+        },
+        "scale-down-unready-time": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownUnreadyTime"
+        },
+        "scale-down-utilization-threshold": {
+          "type": "string",
+          "x-ms-client-name": "scaleDownUtilizationThreshold"
+        },
+        "skip-nodes-with-local-storage": {
+          "type": "string",
+          "x-ms-client-name": "skipNodesWithLocalStorage"
+        },
+        "skip-nodes-with-system-pods": {
+          "type": "string",
+          "x-ms-client-name": "skipNodesWithSystemPods"
+        }
+      }
+    },
+    "ManagedServiceIdentityUserAssignedIdentitiesValue__added": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "clientId": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "TypeSpec.Http.NoContentResponse__added": {
+      "type": "object"
+    },
+    "TypeSpec.Http.OkResponse__added": {
+      "type": "object"
+    },
+    "AgentPool": {
+      "allOf": [
+        [
+          "~",
+          {
+            "$ref": {
+              "__old": "#/definitions/SubResource",
+              "__new": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+            }
+          }
+        ]
+      ]
+    },
+    "AgentPoolAvailableVersionsProperties": {
+      "properties": {
+        "agentPoolVersions": {
+          "items": {
+            "type__deleted": "object",
+            "properties__deleted": {
+              "default": {
+                "type": "boolean",
+                "description": "Whether this version is the default agent pool version."
+              },
+              "kubernetesVersion": {
+                "type": "string",
+                "description": "The Kubernetes version (major.minor.patch)."
+              },
+              "isPreview": {
+                "type": "boolean",
+                "description": "Whether Kubernetes version is currently in preview."
+              }
+            },
+            "$ref__added": "#/definitions/AgentPoolAvailableVersionsPropertiesAgentPoolVersionsItem"
+          }
+        }
+      }
+    },
+    "AgentPoolListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "AgentPoolNetworkProfile": {
+      "properties": {
+        "nodePublicIPTags": {
+          "$ref__deleted": "#/definitions/NodePublicIPTags",
+          "type__added": "array",
+          "items__added": {
+            "$ref": "#/definitions/IPTag"
+          }
+        }
+      }
+    },
+    "AgentPoolSecurityProfile": {
+      "properties": {
+        "enableVTPM": {
+          "x-ms-client-name__added": "enableVtpm"
+        }
+      }
+    },
+    "AgentPoolUpgradeProfile": {
+      "allOf__added": [
+        {
+          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+        }
+      ],
+      "properties": {
+        "id__deleted": {
+          "type": "string",
+          "readOnly": true
+        },
+        "name__deleted": {
+          "type": "string",
+          "readOnly": true
+        },
+        "type__deleted": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "AgentPoolUpgradeProfileProperties": {
+      "properties": {
+        "upgrades": {
+          "items": {
+            "type__deleted": "object",
+            "properties__deleted": {
+              "kubernetesVersion": {
+                "type": "string",
+                "description": "The Kubernetes version (major.minor.patch)."
+              },
+              "isPreview": {
+                "type": "boolean",
+                "description": "Whether the Kubernetes version is currently in preview."
+              }
+            },
+            "$ref__added": "#/definitions/AgentPoolUpgradeProfilePropertiesUpgradesItem"
+          }
+        }
+      }
+    },
+    "AgentPoolUpgradeSettings": {
+      "properties": {
+        "undrainableNodeBehavior": {
+          "enum": [
+            [
+              "+",
+              "Cordon"
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "Cordon"
+            ]
+          ]
+        }
+      }
+    },
+    "IstioServiceMesh": {
+      "properties": {
+        "revisions": {
+          "uniqueItems__deleted": true
+        }
+      }
+    },
+    "LocalDNSProfile": {
+      "properties": {
+        "vnetDNSOverrides": {
+          "$ref__deleted": "#/definitions/LocalDNSOverrides",
+          "additionalProperties__added": {
+            "$ref": "#/definitions/LocalDNSOverride"
+          }
+        },
+        "kubeDNSOverrides": {
+          "$ref__deleted": "#/definitions/LocalDNSOverrides",
+          "additionalProperties__added": {
+            "$ref": "#/definitions/LocalDNSOverride"
+          }
+        }
+      }
+    },
+    "Machine": {
+      "allOf": [
+        [
+          "~",
+          {
+            "$ref": {
+              "__old": "#/definitions/SubResource",
+              "__new": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+            }
+          }
+        ]
+      ]
+    },
+    "MachineIpAddress": {
+      "readOnly__deleted": true,
+      "properties": {
+        "family": {
+          "x-ms-enum": {
+            "name": {
+              "__old": "IPFamily",
+              "__new": "IpFamily"
+            }
+          }
+        }
+      }
+    },
+    "MachineListResult": {
+      "required__added": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "x-ms-identifiers__deleted": [
+            "id"
+          ]
+        }
+      }
+    },
+    "MachineNetworkProperties": {
+      "readOnly__deleted": true
+    },
+    "MachineProperties": {
+      "readOnly__deleted": true,
+      "properties": {
+        "network": {
+          "readOnly__added": true
+        }
+      }
+    },
+    "MaintenanceConfiguration": {
+      "properties": {
+        "systemData__deleted": {
+          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/systemData",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        [
+          "~",
+          {
+            "$ref": {
+              "__old": "#/definitions/SubResource",
+              "__new": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+            }
+          }
+        ]
+      ]
+    },
+    "MaintenanceConfigurationListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "MaintenanceConfigurationProperties": {
+      "properties": {
+        "maintenanceWindow": {
+          "type__deleted": "object"
+        }
+      }
+    },
+    "ManagedClusterAADProfile": {
+      "properties": {
+        "enableAzureRBAC": {
+          "x-ms-client-name__added": "enableAzureRbac"
+        }
+      }
+    },
+    "ManagedClusterAPIServerAccessProfile": {
+      "properties": {
+        "enablePrivateClusterPublicFQDN": {
+          "x-ms-client-name__added": "enablePrivateClusterPublicFqdn"
+        }
+      }
+    },
+    "ManagedClusterAccessProfile": {
+      "x-ms-azure-resource__deleted": false
+    },
+    "ManagedClusterAddonProfile": {
+      "properties": {
+        "identity": {
+          "allOf__deleted": [
+            {
+              "$ref": "#/definitions/UserAssignedIdentity"
+            }
+          ],
+          "$ref__added": "#/definitions/ManagedClusterAddonProfileIdentity"
+        }
+      }
+    },
+    "ManagedClusterAgentPoolProfileProperties": {
+      "properties": {
+        "osSKU": {
+          "enum": [
+            [
+              "+",
+              "Ubuntu"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "Ubuntu"
+            ],
+            [
+              "-",
+              "Ubuntu2204"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              "+",
+              "Ubuntu2204"
+            ]
+          ]
+        },
+        "spotMaxPrice": {
+          "format__added": "float"
+        },
+        "enableFIPS": {
+          "x-ms-client-name__added": "enableFips"
+        },
+        "gpuInstanceProfile": {
+          "x-ms-enum": {
+            "name": {
+              "__old": "GPUInstanceProfile ",
+              "__new": "GPUInstanceProfile"
+            }
+          }
+        },
+        "virtualMachineNodesStatus": {
+          "$ref__deleted": "#/definitions/VirtualMachineNodesStatus",
+          "type__added": "array",
+          "items__added": {
+            "$ref": "#/definitions/VirtualMachineNodes"
+          }
+        }
+      }
+    },
+    "ManagedClusterAutoUpgradeProfile": {
+      "properties": {
+        "nodeOSUpgradeChannel": {
+          "enum": [
+            [
+              "+",
+              "None"
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "None"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ]
+          ]
+        }
+      }
+    },
+    "ManagedClusterBootstrapProfile": {
+      "properties": {
+        "artifactSource": {
+          "enum": [
+            [
+              "+",
+              "Cache"
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "Cache"
+            ]
+          ]
+        }
+      }
+    },
+    "ManagedClusterIdentity": {
+      "properties": {
+        "delegatedResources": {
+          "$ref__deleted": "../../../../../../common-types/resource-management/v4/managedidentitywithdelegation.json#/definitions/DelegatedResources",
+          "type__added": "object",
+          "additionalProperties__added": {
+            "$ref": "../../../../../../common-types/resource-management/v6/managedidentitywithdelegation.json#/definitions/DelegatedResource"
+          }
+        },
+        "userAssignedIdentities": {
+          "additionalProperties": {
+            "properties__deleted": {
+              "principalId": {
+                "readOnly": true,
+                "type": "string",
+                "description": "The principal id of user assigned identity."
+              },
+              "clientId": {
+                "readOnly": true,
+                "type": "string",
+                "description": "The client id of user assigned identity."
+              }
+            },
+            "type__deleted": "object",
+            "x-ms-client-name__deleted": "ManagedServiceIdentityUserAssignedIdentitiesValue",
+            "$ref__added": "#/definitions/ManagedServiceIdentityUserAssignedIdentitiesValue"
+          }
+        }
+      }
+    },
+    "ManagedClusterIngressProfileWebAppRouting": {
+      "properties": {
+        "identity": {
+          "type__deleted": "object"
+        }
+      }
+    },
+    "ManagedClusterListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "ManagedClusterLoadBalancerProfile": {
+      "properties": {
+        "managedOutboundIPs": {
+          "type__deleted": "object",
+          "properties__deleted": {
+            "count": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The desired number of IPv4 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. ",
+              "default": 1,
+              "minimum": 1,
+              "maximum": 100
+            },
+            "countIPv6": {
+              "type": "integer",
+              "format": "int32",
+              "description": "The desired number of IPv6 outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. ",
+              "default": 0,
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "$ref__added": "#/definitions/ManagedClusterLoadBalancerProfileManagedOutboundIPs"
+        },
+        "outboundIPPrefixes": {
+          "type__deleted": "object",
+          "properties__deleted": {
+            "publicIPPrefixes": {
+              "type": "array",
+              "description": "A list of public IP prefix resources.",
+              "items": {
+                "$ref": "#/definitions/ResourceReference"
+              }
+            }
+          },
+          "$ref__added": "#/definitions/ManagedClusterLoadBalancerProfileOutboundIPPrefixes"
+        },
+        "outboundIPs": {
+          "type__deleted": "object",
+          "properties__deleted": {
+            "publicIPs": {
+              "type": "array",
+              "description": "A list of public IP resources.",
+              "items": {
+                "$ref": "#/definitions/ResourceReference"
+              }
+            }
+          },
+          "$ref__added": "#/definitions/ManagedClusterLoadBalancerProfileOutboundIPs"
+        }
+      }
+    },
+    "ManagedClusterPodIdentity": {
+      "properties": {
+        "provisioningInfo": {
+          "type__deleted": "object",
+          "properties__deleted": {
+            "error": {
+              "$ref": "#/definitions/ManagedClusterPodIdentityProvisioningError",
+              "description": "Pod identity assignment error (if any)."
+            }
+          },
+          "$ref__added": "#/definitions/ManagedClusterPodIdentityProvisioningInfo"
+        }
+      }
+    },
+    "ManagedClusterPoolUpgradeProfile": {
+      "properties": {
+        "upgrades": {
+          "items": {
+            "type__deleted": "object",
+            "properties__deleted": {
+              "kubernetesVersion": {
+                "type": "string",
+                "description": "The Kubernetes version (major.minor.patch)."
+              },
+              "isPreview": {
+                "type": "boolean",
+                "description": "Whether the Kubernetes version is currently in preview."
+              }
+            },
+            "$ref__added": "#/definitions/ManagedClusterPoolUpgradeProfileUpgradesItem"
+          }
+        }
+      }
+    },
+    "ManagedClusterProperties": {
+      "properties": {
+        "privateFQDN": {
+          "x-ms-client-name__added": "privateFqdn"
+        },
+        "azurePortalFQDN": {
+          "x-ms-client-name__added": "azurePortalFqdn"
+        },
+        "enableRBAC": {
+          "x-ms-client-name__added": "enableRbac"
+        },
+        "autoScalerProfile": {
+          "type__deleted": "object",
+          "properties__deleted": {
+            "balance-similar-node-groups": {
+              "type": "string",
+              "description": "Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'"
+            },
+            "daemonset-eviction-for-empty-nodes": {
+              "type": "boolean",
+              "description": "DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted."
+            },
+            "daemonset-eviction-for-occupied-nodes": {
+              "type": "boolean",
+              "description": "DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted."
+            },
+            "ignore-daemonsets-utilization": {
+              "type": "boolean",
+              "description": "Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions."
+            },
+            "expander": {
+              "type": "string",
+              "description": "The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.",
+              "enum": [
+                "least-waste",
+                "most-pods",
+                "priority",
+                "random"
+              ],
+              "x-ms-enum": {
+                "name": "expander",
+                "modelAsString": true,
+                "values": [
+                  {
+                    "value": "least-waste",
+                    "description": "Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources."
+                  },
+                  {
+                    "value": "most-pods",
+                    "description": "Selects the node group that would be able to schedule the most pods when scaling up. This is useful when you are using nodeSelector to make sure certain pods land on certain nodes. Note that this won't cause the autoscaler to select bigger nodes vs. smaller, as it can add multiple smaller nodes at once."
+                  },
+                  {
+                    "value": "priority",
+                    "description": "Selects the node group that has the highest priority assigned by the user. It's configuration is described in more details [here](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/expander/priority/readme.md)."
+                  },
+                  {
+                    "value": "random",
+                    "description": "Used when you don't have a particular need for the node groups to scale differently."
+                  }
+                ]
+              }
+            },
+            "max-empty-bulk-delete": {
+              "type": "string",
+              "description": "The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10."
+            },
+            "max-graceful-termination-sec": {
+              "type": "string",
+              "description": "The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600."
+            },
+            "max-node-provision-time": {
+              "type": "string",
+              "description": "The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "max-total-unready-percentage": {
+              "type": "string",
+              "description": "The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0."
+            },
+            "new-pod-scale-up-delay": {
+              "type": "string",
+              "description": "Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc)."
+            },
+            "ok-total-unready-count": {
+              "type": "string",
+              "description": "The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3."
+            },
+            "scan-interval": {
+              "type": "string",
+              "description": "How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds."
+            },
+            "scale-down-delay-after-add": {
+              "type": "string",
+              "description": "How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "scale-down-delay-after-delete": {
+              "type": "string",
+              "description": "How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "scale-down-delay-after-failure": {
+              "type": "string",
+              "description": "How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "scale-down-unneeded-time": {
+              "type": "string",
+              "description": "How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "scale-down-unready-time": {
+              "type": "string",
+              "description": "How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported."
+            },
+            "scale-down-utilization-threshold": {
+              "type": "string",
+              "description": "Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'."
+            },
+            "skip-nodes-with-local-storage": {
+              "type": "string",
+              "description": "If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true."
+            },
+            "skip-nodes-with-system-pods": {
+              "type": "string",
+              "description": "If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true."
+            }
+          },
+          "$ref__added": "#/definitions/ManagedClusterPropertiesAutoScalerProfile"
+        }
+      }
+    },
+    "ManagedClusterSKU": {
+      "properties": {
+        "tier": {
+          "enum": [
+            [
+              "+",
+              "Premium"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "Premium"
+            ]
+          ]
+        }
+      }
+    },
+    "ManagedClusterSecurityProfile": {
+      "properties": {
+        "customCATrustCertificates": {
+          "$ref__deleted": "#/definitions/ManagedClusterSecurityProfileCustomCATrustCertificates",
+          "type__added": "array",
+          "minItems__added": 0,
+          "maxItems__added": 10,
+          "items__added": {
+            "type": "string",
+            "format": "byte"
+          }
+        }
+      }
+    },
+    "ManagedClusterUpgradeProfile": {
+      "allOf__added": [
+        {
+          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+        }
+      ],
+      "properties": {
+        "id__deleted": {
+          "type": "string",
+          "readOnly": true
+        },
+        "name__deleted": {
+          "type": "string",
+          "readOnly": true
+        },
+        "type__deleted": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ManagedNamespace": {
+      "properties": {
+        "systemData__deleted": {
+          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/systemData",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        [
+          "~",
+          {
+            "$ref": {
+              "__old": "#/definitions/SubResource",
+              "__new": "../../../../../../common-types/resource-management/v6/types.json#/definitions/Resource"
+            }
+          }
+        ]
+      ]
+    },
+    "ManagedNamespaceListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "MeshRevisionProfileList": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "MeshUpgradeProfileList": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "NetworkPolicies": {
+      "properties": {
+        "ingress": {
+          "default__deleted": "AllowSameNamespace"
+        },
+        "egress": {
+          "default__deleted": "AllowAll"
+        }
+      }
+    },
+    "OperationListResult": {
+      "description__added": "[Placeholder] Discription for page model",
+      "required__added": [
+        "value"
+      ],
+      "properties": {
+        "nextLink__added": {
+          "type": "string",
+          "format": "uri",
+          "description": "[Placeholder] Discription for nextLink property"
+        },
+        "value": {
+          "readOnly__deleted": true,
+          "description__added": "[Placeholder] Discription for value property"
+        }
+      }
+    },
+    "PrivateEndpointConnection": {
+      "allOf__added": [
+        {
+          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+        }
+      ],
+      "properties": {
+        "id__deleted": {
+          "type": "string",
+          "readOnly": true
+        },
+        "name__deleted": {
+          "type": "string",
+          "readOnly": true,
+          "externalDocs": {
+            "url": "https://aka.ms/search-naming-rules"
+          }
+        },
+        "type__deleted": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "PrivateLinkResource": {
+      "properties": {
+        "name": {
+          "externalDocs__deleted": {
+            "url": "https://aka.ms/search-naming-rules"
+          }
+        }
+      }
+    },
+    "SnapshotListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "SnapshotProperties": {
+      "properties": {
+        "osSku": {
+          "enum": [
+            [
+              "+",
+              "Ubuntu"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              "-",
+              "Ubuntu"
+            ],
+            [
+              "-",
+              "Ubuntu2204"
+            ],
+            [
+              " "
+            ],
+            [
+              " "
+            ],
+            [
+              "+",
+              "Ubuntu2204"
+            ]
+          ]
+        },
+        "enableFIPS": {
+          "x-ms-client-name__added": "enableFips"
+        }
+      }
+    },
+    "TrustedAccessRoleBinding": {
+      "allOf": [
+        [
+          "~",
+          {
+            "$ref": {
+              "__old": "../../../../../../common-types/resource-management/v6/types.json#/definitions/Resource",
+              "__new": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ProxyResource"
+            }
+          }
+        ]
+      ]
+    },
+    "TrustedAccessRoleBindingListResult": {
+      "required__added": [
+        "value"
+      ]
+    },
+    "TrustedAccessRoleListResult": {
+      "required__added": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "readOnly__deleted": true,
+          "x-ms-identifiers__deleted": [
+            "sourceResourceType",
+            "name"
+          ]
+        }
+      }
+    }
+  }
+}
