@@ -474,6 +474,17 @@ model MachineProperties {
   #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
   @added(Versions.v2026_03_02_preview)
   localDNSProfile?: LocalDNSProfile;
+
+  /**
+   * The fully qualified resource ID of the Capacity Reservation Group to provide virutal machines from a reserved group of Machines. This is of the form: ' /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/capacityreservationgroups/{capacityReservationGroupName}'. Customers use it to create a Machine with a specified CRG. For more information see [Capacity Reservation](https://learn.microsoft.com/en-us/azure/virtual-machines/capacity-reservation-overview)
+   */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
+  @added(Versions.v2026_03_02_preview)
+  capacityReservationGroupID?: Azure.Core.armResourceIdentifier<[
+    {
+      type: "Microsoft.Compute/capacityReservationGroups";
+    }
+  ]>;
 }
 
 /**
