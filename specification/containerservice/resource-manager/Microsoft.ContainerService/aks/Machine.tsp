@@ -476,15 +476,10 @@ model MachineProperties {
   localDNSProfile?: LocalDNSProfile;
 
   /**
-   * The fully qualified resource ID of the Capacity Reservation Group to provide virutal machines from a reserved group of Machines. This is of the form: ' /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/capacityreservationgroups/{capacityReservationGroupName}'. Customers use it to create a Machine with a specified CRG. For more information see [Capacity Reservation](aka.ms/CapacityReservation).
+   * The Capacity Reservation to provide virtual machines from a reserved group of Machines.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
   @added(Versions.v2026_03_02_preview)
-  capacityReservationGroupID?: Azure.Core.armResourceIdentifier<[
-    {
-      type: "Microsoft.Compute/capacityReservationGroups";
-    }
-  ]>;
+  capacityReservation?: CapacityReservation;
 }
 
 /**
@@ -562,4 +557,30 @@ model MachineIpAddress {
    */
   @visibility(Lifecycle.Read)
   ip?: string;
+}
+
+/**
+ * The Capacity Reservation to provide virtual machines from a reserved group of Machines.
+ */
+@added(Versions.v2026_03_02_preview)
+model CapacityReservation {
+  /**
+   * The Capacity Reservation Group to provide virtual machines from a reserved group of Machines.
+   */
+   capacityReservationGroup?: CapacityReservationGroup;
+}
+
+/**
+ * The Capacity Reservation Group to provide virtual machines from a reserved group of Machines.
+ */
+@added(Versions.v2026_03_02_preview)
+model CapacityReservationGroup {
+  /**
+   * The fully qualified resource ID of the Capacity Reservation Group to provide virtual machines from a reserved group of Machines. This is of the form: '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/capacityreservationgroups/{capacityReservationGroupName}' Customers use it to create a Machine with a specified CRG. For more information see [Capacity Reservation](aka.ms/CapacityReservation)
+   */
+   id?: Azure.Core.armResourceIdentifier<[
+    {
+      type: "Microsoft.Compute/CapacityReservationGroups";
+    }
+  ]>;
 }
